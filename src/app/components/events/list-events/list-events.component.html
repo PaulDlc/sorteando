@@ -1,0 +1,13 @@
+<app-navigation></app-navigation>
+<div class="container mx-auto p-4 grid grid-cols-1 gap-4">
+  <h1 class="text-3xl font-semibold text-gray-900">Lista de Eventos</h1>
+  <div class="grid grid-cols-3 gap-4">
+    <div *ngFor="let evento of eventos" class="bg-black text-white p-4 my-4 rounded-md">
+      <h2 class="text-2xl font-semibold">{{ evento.nombre }}</h2>
+      <p class="text-base">{{ evento.descripcion }}</p>
+      <p class="text-base">Fecha de inicio: {{ evento.fecha_inicio | date:'medium' }}</p>
+      <p class="text-base">Fecha de fin: {{ evento.fecha_fin | date:'medium' }}</p>
+    </div>
+  </div>
+  
+</div>

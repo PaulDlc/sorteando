@@ -1,0 +1,48 @@
+<app-navigation-admin></app-navigation-admin>
+<div>
+    <div>
+        <button (click)="vistaFormulario()" [hidden]="!formulario">Crear Evento</button>
+    </div>
+    <div [hidden]="formulario">
+        <form [formGroup]="formEventsCreate" (ngSubmit)="insertar()">
+            <div>
+                <label>Nombre:</label>
+                <input type="text" formControlName="nombre" required>
+                <div [hidden]="nombre.valid||nombre.pristine">
+                    <span>La nombre es obligatoria</span>
+                </div>
+            </div>
+            <br>
+
+            <br>
+            <div>
+                <label>Descripcion:</label>
+                <textarea formControlName="descripcion"></textarea>
+                <div [hidden]="descripcion.valid||descripcion.pristine">
+                    <span>La descripcion es obligatoria</span>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>Fecha inicio:</label>
+                <input type="date" formControlName="fecha_inicio" required>
+                <div [hidden]="fecha_inicio.valid||fecha_inicio.pristine">
+                    <span>La fecha_inicio es obligatoria</span>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>Fecha fin:</label>
+                <input type="date" formControlName="fecha_fin" required>
+                <div [hidden]="fecha_fin.valid||fecha_fin.pristine">
+                    <span>La fecha_fin es obligatoria</span>
+                </div>
+            </div>
+            <br>
+            <button [disabled]="formEventsCreate.invalid">
+                Crear
+            </button>
+        </form>
+    </div>
+
+</div>
